@@ -14,12 +14,13 @@ export default function WordlePlay() {
   //console.log("sdfg")
   const [snack_flag, setSnackflag] = useState(false);
   const [Msg, setMsg] = useState("");
-  const [round, setround] = useState(0);
+  const [round, setround] = useState(Math.floor(Math.random() * 2200));
  
   useEffect(() => {
-    setround(Math.floor(Math.random() * 2000));
+    let id = Math.floor(Math.random() * 2200);
+    setround(id);
     axios.post('https://akib-server.herokuapp.com/wordle/solution', {
-      idx: round
+      idx: id
     })
     .then((response) => {
       let x = response.data.replace(/'/g, '"');
@@ -29,9 +30,7 @@ export default function WordlePlay() {
       console.log(error);
     });
 
-    axios.get('https://akib-server.herokuapp.com/wordle/all', {
-      
-    })
+    axios.get('https://akib-server.herokuapp.com/wordle/all', {})
     .then((response) => {
       let x = response.data;
       //x = JSON.parse(x);
@@ -42,7 +41,7 @@ export default function WordlePlay() {
     });
   }, []);
   
-  console.log(AllWords)
+  //console.log(AllWords)
 
   const [Words, setWords] = useState([]);
   const [flag, setflag] = useState(true);
