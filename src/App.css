@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: #121213;
+}
+
+.inp{
+  background-image:url("bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color:#121213;
+  letter-spacing:38px;
+  padding:7px 7px 7px 17px;
+  width:98%;
+  font-size:30px;
+  font-weight:bold;
+  border:0px;
+  color:#dadada;
+  outline:none;
+  
+}
+.snackbar{
+  background-color: transparent;
+  position:fixed;
+  top:60px;
+  left:0px;
+  width:100%;
+}
+.msgbox{
+  background-color: #d7dadc;
+  width:220px;
+  padding:12px;
+  font-size:large;
+  border-radius:5px;
+  font-weight: bold;
+}
