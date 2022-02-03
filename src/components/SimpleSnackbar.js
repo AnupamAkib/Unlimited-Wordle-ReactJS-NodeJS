@@ -13,7 +13,7 @@ export default function SimpleSnackbar(props) {
     const myTimeout = setTimeout(close, 2000);
     //setOpen(false);
     return (
-        <div  className='snackbar' id='snackbar'>
+        <div style={{zIndex:"100"}} className='snackbar' id='snackbar'>
       <center><div className='msgbox'>{Msg}</div></center>
     </div>
     );

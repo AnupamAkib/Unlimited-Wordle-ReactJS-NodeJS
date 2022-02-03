@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function WordMatch(props) {
     let choosenWord = props.choosen.toUpperCase();
     let gameWord = props.gameWord.toUpperCase();
+    let round = props.round;
 
     let color = ["", "", "", "", ""];
     let taken = [false, false, false, false, false];
@@ -25,12 +26,19 @@ export default function WordMatch(props) {
             }
         }
         if(!found){
-            color[i] = "#3a3a3c"; //main
-            //color[i] = "#121213";
+            color[i] = "#3a3a3c";
         }
     }
 
     let res = [];
+    //const [res, set_res] = useState([]);
+
+    if(localStorage.getItem(round)==null){
+        localStorage.setItem("w_color", color);
+    }
+    else{
+        localStorage.setItem("w_color", "");
+    }
 
     for(let i=0; i<5; i++){
         res.push(<input type='text' value={choosenWord[i]} style={{
@@ -44,13 +52,14 @@ export default function WordMatch(props) {
             margin:"3px", 
             color:"#dadada",
             outline:"none",
-        }} readonly/>)    
+        }} readonly/>)
     }
+    //console.log(res)
 
     return (
-    <div style={{transation:"all 5s"}}>
+    <div>
         <center>
-            {res}
+        {res}
         </center>
     </div>
     );
