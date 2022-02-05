@@ -72,6 +72,7 @@ export default function WordlePlay(props) {
       setGameWord(actual_word);
       set_user_selected_words(user_words);
       setWordCnt(user_attempt);
+      setcw(user_words[user_words.length-1]);
       //localStorage.setItem("w_color", null);
     } 
     setLoading(false)
@@ -254,9 +255,11 @@ export default function WordlePlay(props) {
 
   if(Loading){
     return (
-      <>
-      <h1 style={{color:"white"}}>LOADING...</h1>
-      </>
+      <center>
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      </center>
     )
   }
 
@@ -278,7 +281,7 @@ export default function WordlePlay(props) {
             }} spellCheck="false" type="text" placeholder="" onChange={wordOnChange} maxlength="5" value={choosenW} className='inp' readOnly={isSolved}/>
           <br/>
           {restField}
-          {!isSolved? <input className="btn btn-primary" type="submit" value="CHECK" disabled={flag}/> : ''}
+          {!isSolved? <input style={{width:"0px", height:"0px", padding:"0px", border:"0px"}} className="" type="submit" value="CHECK" disabled={flag}/> : ''}
         </form> : ''}
       </div>
       <SimpleSnackbar open={snack_flag} msg={Msg}/>

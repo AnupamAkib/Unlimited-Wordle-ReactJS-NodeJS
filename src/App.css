@@ -57,11 +57,12 @@ body{
   
 }
 .snackbar{
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   position:fixed;
   top:60px;
   left:0px;
   width:100%;
+  height:100%;
 }
 .msgbox{
   background-color: #d7dadc;
@@ -70,11 +71,13 @@ body{
   font-size:large;
   border-radius:5px;
   font-weight: bold;
+  box-shadow: 0 0 15px rgba(0,0,0,1);
 }
 .modalBox{
   background-color: #e3e3e3;
   width:50%;
   padding:15px 0px 15px 0px; 
+  border-radius: 5px;
 }
 @media only screen and (max-width: 600px) {
   .modalBox{
@@ -82,6 +85,6 @@ body{
   }
 }
 .closeBtn{
-  position:absolute;
-  padding-left: 20px;
+  float:right;
+  padding-right: 20px;
 }
